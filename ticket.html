@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チケット販売</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #718096;
+            margin-bottom: 8px;
+        }
+
+        .ticket-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ticket-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .pro-wrestling {
+            border-left: 4px solid #e6f3ff;
+        }
+
+        .pro-wrestling .section-title {
+            color: #3182ce;
+        }
+
+        .other-events {
+            border-left: 4px solid #f0fff4;
+        }
+
+        .other-events .section-title {
+            color: #38a169;
+        }
+
+        .ticket-button {
+            display: block;
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .ticket-button:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6b4190 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .ticket-button:active {
+            transform: translateY(0);
+        }
+
+        .pro-wrestling .ticket-button {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+        }
+
+        .pro-wrestling .ticket-button:hover {
+            background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%);
+            box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+        }
+
+        .other-events .ticket-button {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+        }
+
+        .other-events .ticket-button:hover {
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+        }
+
+        .description {
+            font-size: 14px;
+            color: #718096;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 320px) {
+            .container {
+                padding: 16px;
+            }
+            
+            .ticket-section {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🎫 チケット販売</h1>
+            <p class="subtitle">お求めのチケットをお選びください</p>
+        </div>
+
+        <div class="ticket-section other-events">
+            <h2 class="section-title">🎪 イベントチケット</h2>
+            <p class="description">一般チケットはこちらから</p>
+            <a href="https://ticket.rakuten.co.jp/mini/events/vC837sqGb" class="ticket-button" target="_blank" rel="noopener">
+                イベントチケットを購入
+            </a>
+        </div>
+
+        <div class="ticket-section pro-wrestling">
+            <h2 class="section-title">🤼 プロレスチケット</h2>
+            <p class="description">プロレス関連のイベントチケットはこちらから</p>
+            <a href="https://wakuwakufes.base.shop" class="ticket-button" target="_blank" rel="noopener">
+                プロレスチケットを購入
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>※外部サイトに移動します</p>
+        </div>
+    </div>
+
+    <script>
+        // ボタンクリック時のフィードバック効果
+        document.querySelectorAll('.ticket-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // リップル効果
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.background = 'rgba(255,255,255,0.6)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.width = ripple.style.height = '100px';
+                ripple.style.left = (e.clientX - e.target.offsetLeft - 50) + 'px';
+                ripple.style.top = (e.clientY - e.target.offsetTop - 50) + 'px';
+                ripple.style.animation = 'ripple 0.6s linear';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // CSS アニメーション定義
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                0% {
+                    transform: scale(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ページ読み込み時のアニメーション
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.ticket-section');
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    section.style.transition = 'all 0.6s ease';
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 200 + 300);
+            });
+        });
+    </script>
+</body>
+</html>
