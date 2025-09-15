@@ -17,6 +17,8 @@
             min-height: 100vh;
             color: #4a5568;
             line-height: 1.6;
+            word-break: keep-all;
+            overflow-wrap: break-word;
         }
 
         .container {
@@ -142,6 +144,55 @@
             margin-bottom: 16px;
         }
 
+        /* 確認事項のスタイル */
+        .notice-section {
+            background: rgba(255, 249, 219, 0.95);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-left: 4px solid #f59e0b;
+        }
+
+        .notice-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #92400e;
+            margin-bottom: 16px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .notice-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .notice-item {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            border-left: 3px solid #f59e0b;
+            font-size: 14px;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .notice-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .notice-item::before {
+            content: "";
+            margin-right: 0;
+        }
+
         .footer {
             text-align: center;
             margin-top: 40px;
@@ -156,7 +207,7 @@
                 padding: 16px;
             }
             
-            .ticket-section {
+            .ticket-section, .notice-section {
                 padding: 20px;
             }
             
@@ -164,8 +215,13 @@
                 font-size: 24px;
             }
             
-            .section-title {
+            .section-title, .notice-title {
                 font-size: 18px;
+            }
+
+            .notice-item {
+                font-size: 13px;
+                padding: 10px 14px;
             }
         }
     </style>
@@ -175,6 +231,21 @@
         <div class="header">
             <h1 class="title">🎫 チケット販売</h1>
             <p class="subtitle">お求めのチケットをお選びください</p>
+        </div>
+
+        <!-- 確認事項セクション -->
+        <div class="notice-section">
+            <h2 class="notice-title">
+                ⚠️ ご入場時の確認事項
+            </h2>
+            <ul class="notice-list">
+                <li class="notice-item">
+                    大人1名につき中学生以下入場無料。当日はチケット購入済の保護者同伴入場、及び身分証を提示頂きます。
+                </li>
+                <li class="notice-item">
+                    当日、障害者の方は障害者手帳の提示、島民の方は身分証明書（免許証等）の提示が必要となります。
+                </li>
+            </ul>
         </div>
 
         <div class="ticket-section other-events">
@@ -241,7 +312,7 @@
 
         // ページ読み込み時のアニメーション
         document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.ticket-section');
+            const sections = document.querySelectorAll('.ticket-section, .notice-section');
             sections.forEach((section, index) => {
                 section.style.opacity = '0';
                 section.style.transform = 'translateY(20px)';
